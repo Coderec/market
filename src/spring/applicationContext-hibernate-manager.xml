@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
+	default-autowire="byName" default-lazy-init="true">
+		
+	<!--manager-->
+	<!--manager-->
+	<bean id="adminManager" class="com.online.market.service.impl.AdminManager" autowire="byName">
+    </bean>
+	<bean id="adminMsgManager" class="com.online.market.service.impl.AdminMsgManager" autowire="byName">
+    </bean>
+	<bean id="backMsgManager" class="com.online.market.service.impl.BackMsgManager" autowire="byName">
+    </bean>
+	<bean id="gCommentManager" class="com.online.market.service.impl.GCommentManager" autowire="byName">
+    </bean>
+    <bean id="nCommentManager" class="com.online.market.service.impl.NCommentManager" autowire="byName">
+    </bean>
+	<bean id="dictionaryManager" class="com.online.market.service.impl.DictionaryManager" autowire="byName">
+    </bean>
+	<bean id="goodsManager" class="com.online.market.service.impl.GoodsManager" autowire="byName" scope="prototype">
+    </bean>
+	<bean id="logManager" class="com.online.market.service.impl.LogManager" autowire="byName">
+    </bean>
+	<bean id="needsManager" class="com.online.market.service.impl.NeedsManager" autowire="byName">
+    </bean>
+	<bean id="pwdMsgManager" class="com.online.market.service.impl.PwdMsgManager" autowire="byName">
+    </bean>
+	<bean id="userManager" class="com.online.market.service.impl.UserManager" autowire="byName">
+    </bean>
+	
+</beans>        

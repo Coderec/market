@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+	
+<struts>
+	<package name="registration" namespace="/registration" extends="struts-default">
+		<interceptors>
+        <interceptor-stack name="secureDefaultStack">
+            <interceptor-ref name="defaultStack">
+                <param name="params.excludeParams">(.*\.|^|.*|\[('|"))(c|C)lass(\.|('|")]|\[).*,^dojo\..*,^struts\..*,^session\..*,^request\..*,^application\..*,^servlet(Request|Response)\..*,^parameters\..*,^action:.*,^method:.*</param>
+            </interceptor-ref>
+        </interceptor-stack>
+    	</interceptors>
+
+    	<default-interceptor-ref name="secureDefaultStack" />
+		
+  		<action name="registrationAction_*" method="{1}" class="registrationAction">
+  		<result name="index">/index.jsp</result>
+  		<result name="classifiedDetails">/classified-details.jsp</result>
+  		<result name="homepage">/homepage.jsp</result>
+  		<result name="item-details">/item-details.jsp</result>
+  		<result name="list">/list.jsp</result>
+  		<result name="login">/login.jsp</result>
+  		<result name="post">/post.jsp</result>
+  		<result name="registration">/registration.jsp</result>
+  		</action>
+	</package>
+</struts>	

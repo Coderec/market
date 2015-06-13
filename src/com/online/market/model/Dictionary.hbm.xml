@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-3-30 13:25:23 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="com.online.market.model.Dictionary" table="dictionary">
+        <id name="did" type="string">
+            <column name="d_id" length="40" />
+            <generator class="uuid" />
+        </id>
+        <property name="dcategory" type="string">
+            <column name="d_category" length="20" />
+        </property>
+        <property name="dname" type="string">
+            <column name="d_name" length="30" />
+        </property>
+        <property name="dvalid" type="java.lang.Boolean">
+            <column name="d_valid" />
+        </property>
+    </class>
+</hibernate-mapping>

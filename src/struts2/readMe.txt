@@ -1,0 +1,3 @@
+所有的配置文件都是针对名字对应的action的基本配置，无需多说。
+唯一需要注意的是，如果在result中配置的返回页面中使用get方式携带参数，要记得使用html转码，例如struts-comment.xml中的配置。
+这个包下的所有配置文件最总会被位于classPath：struts.xml配置文件包含。

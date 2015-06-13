@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
+	default-autowire="byName" default-lazy-init="true">
+	<!-- query provider wrapper -->
+	<bean id="queryProviderMapping-goods-sql" class="org.onlineframework.commons.QueryProviderMappingImpl">
+		 <property name="queryMap">
+			<map>
+			   <entry key="GoodsManagerExt.findGoodsByContent.query"><value><![CDATA[
+				select * from  goods  where 1=1
+				<#if gName?has_content>
+						and g_name =:gName
+				</#if>
+				<#if uid?has_content>
+						and u_id =:uid
+				</#if>
+					order by g_start_time desc
+			 ]]></value></entry>
+			 <entry key="GoodsManagerExt.findGoodsByContent.count"><value><![CDATA[
+				select count(*) from  goods  where 1=1
+				<#if gName?has_content>
+						and g_name =:gName
+				</#if>
+				<#if uid?has_content>
+						and u_id =:uid
+				</#if>
+					order by g_start_time desc
+				]]></value></entry>
+				
+			<entry key="GoodsManagerExt.deleteGoodsByContent.query"><value><![CDATA[
+				delete from goods  where 1=1
+				<#if gId?has_content>
+				and g_id =:gId
+				</#if>
+			]]></value></entry>		
+			
+			<entry key="GoodsManagerExt.addGoods.query"><value><![CDATA[
+				insert into goods(g_id,g_name,g_category,g_start_time)values(:gId,:gName,:gCategory,:gStartTime)
+			]]></value></entry>	
+			
+			<entry key="GoodsManagerExt.updateGoods.query"><value><![CDATA[
+				update goods 
+				set g_name =:gName
+				,g_start_time=:gStartTime
+				 where 1=1
+				<#if gId?has_content>
+				and g_id =:gId
+				</#if>
+			]]></value></entry>		
+			
+			   <entry key="GoodsManagerExt.findGoodsByUserId.query"><value><![CDATA[
+					select gd.*,u.* from  goods  gd , user u where gd.u_id=u.u_id 
+					<#if uId?has_content>
+					              and   u.u_id=:uId
+					  </#if>			
+						order by gd.g_start_time desc
+			 ]]></value></entry>
+			 <entry key="GoodsManagerExt.findGoodsByUserId.count"><value><![CDATA[
+				select count(*) from  goods  gd , user u where gd.u_id=u.u_id 
+					<#if uId?has_content>
+					              and   u.u_id=:uId
+					  </#if>			
+						order by gd.g_start_time desc
+				]]></value></entry>
+				
+				
+				
+			<entry key="GoodsManagerExt.findGoodsByCategoryRandom.query"><value><![CDATA[
+				select * from goods gd where gd.g_img1 is not null
+				<#if gCategory?has_content>
+					and gd.g_category=:gCategory
+				</#if>
+					Order By Rand() Limit 10 
+				]]></value></entry>
+			<entry key="GoodsManagerExt.findGoodsByCategoryRandom.count"><value><![CDATA[
+				select count(*) from goods gd where gd.g_img1 is not null
+				<#if gCategory?has_content>
+					and gd.g_category=:gCategory
+				</#if>
+					Order By Rand() Limit 10
+				]]></value></entry>
+			<entry key="GoodsManagerExt.findGoodsByRandom.query"><value><![CDATA[
+				select * from goods gd where gd.g_img1 is not null
+					Order By Rand() Limit 5 
+				]]></value></entry>
+			<entry key="GoodsManagerExt.findGoodsByRandom.count"><value><![CDATA[
+				select count(*) from goods gd where gd.g_img1 is not null
+					Order By Rand() Limit 5
+				]]></value></entry>
+			<entry key="GoodsManagerExt.findNewestGoodsByTime.query"><value><![CDATA[
+				select * from goods where g_valid = true order by g_start_time desc limit 5
+				]]></value></entry>
+			<entry key="GoodsManagerExt.findNewestGoodsByTime.count"><value><![CDATA[
+				select count(*) from goods where g_valid = true order by g_start_time desc limit 5
+				]]></value></entry>
+			</map>			
+		</property> 
+	</bean>	
+	
+	<bean id="queryProviderMapping-needs-sql" class="org.onlineframework.commons.QueryProviderMappingImpl">
+		 <property name="queryMap">
+			<map>
+			<entry key="NeedsManagerExt.addNeeds.query"><value><![CDATA[
+				insert into needs(n_id,n_name,n_category,n_start_time)values(:nId,:nName,:nCategory,:nStartTime)
+			]]></value></entry>	
+			<entry key="NeedsManagerExt.updateGoods.query"><value><![CDATA[
+				update needs 
+				set n_name =:nName
+				,n_start_time=:nStartTime
+				 where 1=1
+				<#if nId?has_content>
+				and n_id =:nId
+				</#if>
+			]]></value></entry>	
+			<entry key="NeedsManagerExt.findNeedsByContent.query"><value><![CDATA[
+				select * from  needs  where 1=1
+				<#if nName?has_content>
+						and n_name =:nName
+				</#if>
+				<#if uid?has_content>
+						and u_id =:uid
+				</#if>
+					order by n_start_time desc
+			 ]]></value></entry>
+			 <entry key="NeedsManagerExt.findNeedsByContent.count"><value><![CDATA[
+				select count(*) from  needs  where 1=1
+				<#if nName?has_content>
+						and n_name =:nName
+				</#if>
+				<#if uid?has_content>
+						and u_id =:uid
+				</#if>
+					order by n_start_time desc
+				]]></value></entry>
+			<entry key="NeedsManagerExt.deleteNeedsByContent.query"><value><![CDATA[
+				delete from needs  where 1=1
+				<#if nId?has_content>
+				and n_id =:nId
+				</#if>
+			]]></value></entry>	
+			<entry key="NeedsManagerExt.findNeedsByUserId.query"><value><![CDATA[
+					select nd.*,u.* from  needs  nd , user u where nd.u_id=u.u_id 
+					<#if uId?has_content>
+					              and   u.u_id=:uId
+					  </#if>			
+						order by  nd.n_start_time desc
+			 ]]></value></entry>
+			 <entry key="NeedsManagerExt.findNeedsByUserId.count"><value><![CDATA[
+				select count(*) from  needs  nd , user u where nd.u_id=u.u_id 
+					<#if uId?has_content>
+					              and   u.u_id=:uId
+					  </#if>			
+						order by nd.n_start_time desc
+				]]></value></entry>
+			</map>			
+		</property> 
+	</bean>	
+	
+</beans>

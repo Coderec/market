@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+	
+<hibernate-configuration>
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/market?characterEncoding=UTF-8</property>
+		<property name="hibernate.connection.username">******</property>
+		<property name="hibernate.connection.password">*******</property>
+		
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
+		<property name="hibernate.connection.autocommit">true</property>
+		<!-- property name="hibernate.format_sql">true</property -->
+		<property name="show-sql">true</property>
+		<!--引入映射文件-->
+		<mapping resource="com/online/market/model/Admin.hbm.xml" />
+		<mapping resource="com/online/market/model/AdminMsg.hbm.xml" />
+		<mapping resource="com/online/market/model/BackMsg.hbm.xml" />
+		<mapping resource="com/online/market/model/GComment.hbm.xml" />
+		<mapping resource="com/online/market/model/NComment.hbm.xml" />
+		<mapping resource="com/online/market/model/UserMsg.hbm.xml" />
+		<mapping resource="com/online/market/model/Dictionary.hbm.xml" />
+		<mapping resource="com/online/market/model/Goods.hbm.xml" />
+		<mapping resource="com/online/market/model/Log.hbm.xml" />
+		<mapping resource="com/online/market/model/Needs.hbm.xml" />
+		<mapping resource="com/online/market/model/PwdMsg.hbm.xml" />
+		<mapping resource="com/online/market/model/User.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>	

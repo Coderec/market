@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.online.market.model.Goods" table="goods">
+        <id name="gid" type="string">
+            <column name="g_id" length="40" />
+            <generator class="uuid" />
+        </id>
+        <many-to-one name="user" class="com.online.market.model.User" fetch="select" cascade="save-update">
+            <column name="u_id" length="40" />
+        </many-to-one>
+        <property name="gname" type="string">
+            <column name="g_name" length="30" />
+        </property>
+        <property name="gcategory" type="string">
+            <column name="g_category" length="20" />
+        </property>
+        <property name="gdegree" type="string">
+            <column name="g_degree" length="20" />
+        </property>
+        <property name="gprice" type="java.lang.Double">
+            <column name="g_price" precision="22" scale="0" />
+        </property>
+        <property name="gprePrice" type="java.lang.Double">
+            <column name="g_pre_price" precision="22" scale="0" />
+        </property>
+        <property name="gphone" type="string">
+            <column name="g_phone" length="20" />
+        </property>
+        <property name="gplace" type="string">
+            <column name="g_place" length="20" />
+        </property>
+        <property name="gimg1" type="string">
+            <column name="g_img1" length="60" />
+        </property>
+        <property name="gimg2" type="string">
+            <column name="g_img2" length="60" />
+        </property>
+        <property name="gimg3" type="string">
+            <column name="g_img3" length="60" />
+        </property>
+        <property name="gimg4" type="string">
+            <column name="g_img4" length="60" />
+        </property>
+        <property name="gimg5" type="string">
+            <column name="g_img5" length="60" />
+        </property>
+        <property name="gimg6" type="string">
+            <column name="g_img6" length="60" />
+        </property>
+        <property name="gdescription" type="string">
+            <column name="g_description" length="1000" />
+        </property>
+        <property name="gcollectNum" type="int">
+            <column name="g_collectNum" length="20" />
+        </property>
+        <property name="gcommentNum" type="int">
+            <column name="g_commentNum" length="20" />
+        </property>
+        <property name="gstartTime" type="timestamp">
+            <column name="g_start_time" length="19" />
+        </property>
+        <property name="gendTime" type="timestamp">
+            <column name="g_end_time" length="19" />
+        </property>
+        <property name="gvalid" type="java.lang.Boolean">
+            <column name="g_valid" />
+        </property>
+        <property name="gtime" type="timestamp">
+            <column name="g_time" length="19" />
+        </property>
+        <set name="gcomments" table="g_comment" inverse="true" lazy="true" fetch="select" cascade="all">
+            <key>
+                <column name="g_id" length="40" />
+            </key>
+            <one-to-many class="com.online.market.model.GComment" />
+        </set>
+    </class>
+</hibernate-mapping>

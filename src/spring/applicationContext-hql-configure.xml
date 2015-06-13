@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
+	default-autowire="byName" default-lazy-init="true">
+	<!-- query provider wrapper -->
+	<bean id="queryProviderMapping-notice" class="org.onlineframework.commons.QueryProviderMappingImpl">
+		 <property name="queryMap">
+			<map>
+			<entry key="GoodsManager.findAllGoods.query"><value><![CDATA[
+				from Goods where 1=1		 	
+			]]></value></entry>
+			
+			<entry key="GoodsManager.findAllGoods.count"><value><![CDATA[
+				select count(*) from Goods where 1=1			
+				]]></value></entry>
+				
+		    <entry key="GoodsManager.findAllGoodsByParam.count"><value><![CDATA[
+				select count(*) from Goods where 1=1
+				<#if name?has_content>
+				  and gname =:name
+				</#if>				
+				]]></value></entry>
+		     <entry key="GoodsManager.findAllGoodsByParam.query"><value><![CDATA[
+				from Goods where 1=1
+				<#if name?has_content>
+				  and gname =:name
+				</#if>				
+				]]></value></entry>
+				
+				
+				
+			<entry key="GoodsManager.findGoodsByGid.query"><value><![CDATA[
+				from Goods where 1=1
+				<#if id?has_content>
+				  and gid =:id
+				</#if>				
+				]]></value></entry>
+			<entry key="GoodsManager.findGoodsByUid.query"><value><![CDATA[
+				from Goods g where 1=1
+				<#if id?has_content>
+				  and g.user.uid =:id
+				</#if>				
+				]]></value></entry>
+			<entry key="GoodsManager.findValidGoodsByUid.query"><value><![CDATA[
+				from Goods g where gvalid=true
+				<#if id?has_content>
+				  and g.user.uid =:id
+				</#if>				
+				]]></value></entry>
+			<entry key="GoodsManager.findValidGoodsByUidDesc.query"><value><![CDATA[
+				from Goods g where gvalid=true
+				<#if id?has_content>
+				  and g.user.uid =:id
+				</#if>	
+				order by gstartTime desc			
+				]]></value></entry>
+			<entry key="GoodsManager.findValidGoodsByContainName.query"><value><![CDATA[
+				from Goods where gvalid=true
+				<#if name?has_content>
+				 	and gname like %:name%
+				</#if>	
+				order by gstartTime desc			
+				]]></value></entry>
+			<entry key="GoodsManager.findValidGoodsByContainName.count"><value><![CDATA[
+				select count(*) from Goods where gvalid=true
+				<#if name?has_content>
+				  and gname like %:name%
+				</#if>	
+				order by gstartTime desc			
+				]]></value></entry>
+			<entry key="GoodsManager.findValidGoodsByCategory.query"><value><![CDATA[
+				from Goods where gvalid=true
+				<#if category?has_content>
+				  and  gcategory =:category
+				</#if>
+				]]></value></entry>
+			<entry key="GoodsManager.findValidGoodsByCategory.count"><value><![CDATA[
+				select count(*) from Goods where gvalid=true
+				<#if category?has_content>
+				  and  gcategory =:category
+				</#if>			
+				]]></value></entry>
+			<entry key="GoodsManager.findValidGoodsByCategoryDesc.query"><value><![CDATA[
+				from Goods where gvalid=true
+				<#if category?has_content>
+				  and  gcategory =:category
+				</#if>
+				order by gstartTime desc
+				]]></value></entry>
+			<entry key="GoodsManager.findValidGoodsByCategoryDesc.count"><value><![CDATA[
+				select count(*) from Goods where gvalid=true
+				<#if category?has_content>
+				  and  gcategory =:category
+				</#if>	
+				order by gstartTime desc		
+				]]></value></entry>
+			</map>			
+		</property> 
+	</bean>	
+	
+	<bean id="queryProviderMapping-user" class="org.onlineframework.commons.QueryProviderMappingImpl">
+		 <property name="queryMap">
+			<map>
+			<entry key="UserManager.findUserByUname.query"><value><![CDATA[
+				from User where 1=1
+				<#if name?has_content>
+					and uname =:name
+				</#if>		 	
+			]]></value></entry>
+			<entry key="UserManager.findUserByUltUid.query"><value><![CDATA[
+				from User where 1=1
+				<#if ultUid?has_content>
+					and ultUid =:ultUid
+				</#if>		 	
+			]]></value></entry>
+			<entry key="UserManager.findUserByUid.query"><value><![CDATA[
+				from User where 1=1
+				<#if id?has_content>
+					and uid =:id
+				</#if>		 	
+			]]></value></entry>
+			<entry key="UserManager.findEmailAndNameByUname.query"><value><![CDATA[
+				from User where 1=1
+				<#if name?has_content>
+					and uname =:name
+				</#if>
+				<#if email?has_content>
+					and uemail =:email
+				</#if>		 	
+			]]></value></entry>
+			</map>			
+		</property> 
+	</bean>	
+	
+	<bean id="queryProviderMapping-gComment" class="org.onlineframework.commons.QueryProviderMappingImpl">
+		 <property name="queryMap">
+			<map>
+			<entry key="GCommentManager.findGCommentByGid.query"><value><![CDATA[
+				from GComment g where 1=1
+				<#if id?has_content>
+					and g.goods.gid =:id
+				</#if>		 	
+			]]></value></entry>
+			<entry key="GCommentManager.findGCommentByGidDesc.query"><value><![CDATA[
+				from GComment g where 1=1
+				<#if id?has_content>
+					and g.goods.gid =:id
+				</#if>	
+				order by gcTime desc		 	
+			]]></value></entry>
+			<entry key="GCommentManager.findGCommentByGcid.query"><value><![CDATA[
+				from GComment g where 1=1
+				<#if id?has_content>
+					and g.gcId =:id
+				</#if>
+				order by gcTime desc		 	
+			]]></value></entry>
+			</map>			
+		</property> 
+	</bean>	
+	
+	<bean id="queryProviderMapping-nComment" class="org.onlineframework.commons.QueryProviderMappingImpl">
+		 <property name="queryMap">
+			<map>
+			<entry key="NCommentManager.findNCommentByNid.query"><value><![CDATA[
+				from NComment n where 1=1
+				<#if id?has_content>
+					and n.needs.nid =:id
+				</#if>		 	
+			]]></value></entry>
+			<entry key="NCommentManager.findNCommentByNidDesc.query"><value><![CDATA[
+				from NComment n where 1=1
+				<#if id?has_content>
+					and n.needs.nid =:id
+				</#if>
+				order by ncTime desc		 	
+			]]></value></entry>
+			</map>			
+		</property> 
+	</bean>	
+	
+	<bean id="queryProviderMapping-needs" class="org.onlineframework.commons.QueryProviderMappingImpl">
+		 <property name="queryMap">
+			<map>
+			<entry key="NeedsManager.findNeedsByNid.query"><value><![CDATA[
+				from Needs where 1=1
+				<#if id?has_content>
+				  and nid =:id
+				</#if>				
+				]]></value></entry>
+			<entry key="NeedsManager.findNeedsByUid.query"><value><![CDATA[
+				from Needs n where 1=1
+				<#if id?has_content>
+					and n.user.uid =:id
+				</#if>		 	
+			]]></value></entry>
+			<entry key="NeedsManager.findValidNeedsByContainName.query"><value><![CDATA[
+				from Needs where nvalid=true
+				<#if name?has_content>
+				  and nname like %:name%
+				</#if>				
+				]]></value></entry>
+			<entry key="NeedsManager.findValidNeedsByContainName.count"><value><![CDATA[
+				select count(*) from Needs where nvalid=true
+				<#if name?has_content>
+				  and nname like %:name%
+				</#if>				
+				]]></value></entry>
+			<entry key="NeedsManager.findValidNeedsByCategory.query"><value><![CDATA[
+				from Needs where nvalid=true
+				<#if category?has_content>
+				  and  ncategory =:category
+				</#if>
+				]]></value></entry>
+			<entry key="NeedsManager.findValidNeedsByCategory.count"><value><![CDATA[
+				select count(*) from Needs where nvalid=true
+				<#if category?has_content>
+				  and  ncategory =:category
+				</#if>	
+				]]></value></entry>
+			<entry key="NeedsManager.findValidNeedsByCategoryDesc.query"><value><![CDATA[
+				from Needs where nvalid=true
+				<#if category?has_content>
+				  and  ncategory =:category
+				</#if>
+				order by ntime desc
+				]]></value></entry>
+			<entry key="NeedsManager.findValidNeedsByCategoryDesc.count"><value><![CDATA[
+				select count(*) from Needs where nvalid=true
+				<#if category?has_content>
+				  and  ncategory =:category
+				</#if>	
+				order by ntime desc
+				]]></value></entry>		
+			</map>			
+		</property> 
+	</bean>	
+	
+	<bean id="queryProviderMapping-userMsg" class="org.onlineframework.commons.QueryProviderMappingImpl">
+		 <property name="queryMap">
+			<map>
+			<entry key="UserMsgManager.findUserMsgByReceivedUid.query"><value><![CDATA[
+				from UserMsg u where 1=1
+				<#if id?has_content>
+					and u.user.uid =:id
+				</#if>		 	
+			]]></value></entry>
+			<entry key="UserMsgManager.findUserMsgByReceivedUidAndIsNew.count"><value><![CDATA[
+				select count(*) from UserMsg u where 1=1
+				<#if id?has_content>
+					and u.user.uid =:id
+				</#if>		 	
+				<#if isNew?has_content>
+					and u.umIsNew =:isNew
+				</#if>		 	
+			]]></value></entry>
+			<entry key="UserMsgManager.findUserMsgByReceivedUidAndIsNew.query"><value><![CDATA[
+				from UserMsg u where 1=1
+				<#if id?has_content>
+					and u.user.uid =:id
+				</#if>		 	
+				<#if isNew?has_content>
+					and u.umIsNew =:isNew
+				</#if>		 	
+			]]></value></entry>
+			</map>			
+		</property> 
+	</bean>	
+	
+	<bean id="queryProviderMapping-adminMsg" class="org.onlineframework.commons.QueryProviderMappingImpl">
+		 <property name="queryMap">
+			<map>
+			<entry key="AdminMsgManager.findAdminMsgByUid.query"><value><![CDATA[
+				from AdminMsg a where 1=1
+				<#if id?has_content>
+					and a.user.uid =:id
+				</#if>		 	
+			]]></value></entry>
+			<entry key="AdminMsgManager.findAdminName.query"><value><![CDATA[
+				from Admin a where 1=1
+				<#if name?has_content>
+					and a.name =:name
+				</#if>		 	
+			]]></value></entry>
+			</map>			
+		</property> 
+	</bean>	
+	
+	<bean id="queryProviderMapping-admin" class="org.onlineframework.commons.QueryProviderMappingImpl">
+		 <property name="queryMap">
+			<map>
+			<entry key="AdminManager.findAdminByAdminName.query"><value><![CDATA[
+				from Admin a where 1=1
+				<#if name?has_content>
+					and a.name =:name
+				</#if>		 	
+			]]></value></entry>
+			</map>			
+		</property> 
+	</bean>	
+	
+</beans>

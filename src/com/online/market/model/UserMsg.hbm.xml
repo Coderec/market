@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-3-30 13:25:23 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="com.online.market.model.UserMsg" table="user_msg">
+        <id name="umId" type="string">
+            <column name="um_id" length="40" />
+            <generator class="uuid" />
+        </id>
+        <many-to-one name="user" class="com.online.market.model.User" fetch="select" cascade="save-update">
+            <column name="receive_id" length="40" />
+        </many-to-one>
+        <property name="sendId" type="string">
+            <column name="send_id" length="40" />
+        </property>
+        <property name="umMsg" type="string">
+            <column name="um_msg" length="200" />
+        </property>
+        <property name="umTime" type="timestamp">
+            <column name="um_time" length="19" />
+        </property>
+        <property name="umIsNew" type="java.lang.Boolean">
+            <column name="um_is_new" />
+        </property>
+    </class>
+</hibernate-mapping>

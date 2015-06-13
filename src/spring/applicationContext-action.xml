@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
+	default-autowire="byName" default-lazy-init="true">
+
+	<bean id="goodsAction" class="com.online.market.action.GoodsAction"
+		scope="prototype" autowire="byName" />
+	<bean id="searchAction" class="com.online.market.action.SearchAction"
+		scope="prototype" autowire="byName" />
+	<bean id="searchCommonAction" class="com.online.market.action.SearchCommonAction"
+		scope="prototype" autowire="byName" />
+	<bean id="loginAction" class="com.online.market.action.LoginAction"
+		scope="prototype" autowire="byName" />
+	<bean id="registrationAction" class="com.online.market.action.RegistrationAction"
+		scope="prototype" autowire="byName" />
+	<bean id="postAction" class="com.online.market.action.PostAction"
+		scope="prototype" autowire="byName" />
+	<bean id="indexAction" class="com.online.market.action.IndexAction"
+		scope="prototype" autowire="byName" />
+	<bean id="toItemDetailsAction" class="com.online.market.action.ToItemDetailsAction"
+		scope="prototype" autowire="byName" />
+	<bean id="toHomePageAction" class="com.online.market.action.ToHomePageAction"
+		scope="prototype" autowire="byName" />
+	<bean id="toClassifiedDetailsAction" class="com.online.market.action.ToClassifiedDetailsAction"
+		scope="prototype" autowire="byName" />
+	<bean id="commentAction" class="com.online.market.action.CommentAction"
+		scope="prototype" autowire="byName" />
+	<bean id="msgAction" class="com.online.market.action.MsgAction"
+		scope="prototype" autowire="byName" />
+	<bean id="collectAction" class="com.online.market.action.CollectAction"
+		scope="prototype" autowire="byName" />
+	<bean id="pwdMsgAction" class="com.online.market.action.PwdMsgAction"
+		scope="prototype" autowire="byName" />
+	<bean id="exitAction" class="com.online.market.action.ExitAction"
+		scope="prototype" autowire="byName" />
+	<bean id="listChangePageAction" class="com.online.market.action.ListChangePageAction"
+		scope="prototype" autowire="byName" />
+	<bean id="classifiedDetailsChangePageAction" class="com.online.market.action.ClassifiedDetailsChangePageAction"
+		scope="prototype" autowire="byName" />
+	<bean id="unCollectAction" class="com.online.market.action.UnCollectAction"
+		scope="prototype" autowire="byName" />
+	<bean id="adminLoginAction" class="com.online.market.action.AdminLoginAction"
+		scope="prototype" autowire="byName" />
+	<bean id="adminUserTableAction" class="com.online.market.action.AdminUserTableAction"
+		scope="prototype" autowire="byName" />
+	<bean id="adminGoodsTableAction" class="com.online.market.action.AdminGoodsTableAction"
+		scope="prototype" autowire="byName" />
+	<bean id="adminIndexAction" class="com.online.market.action.AdminIndexAction"
+		scope="prototype" autowire="byName" />
+	<bean id="adminMsgAction" class="com.online.market.action.AdminMsgAction"
+		scope="prototype" autowire="byName" />
+	<bean id="adminDetailAction" class="com.online.market.action.AdminDetailAction"
+		scope="prototype" autowire="byName" />
+	<bean id="adminGoodsDetailAction" class="com.online.market.action.AdminGoodsDetailAction"
+		scope="prototype" autowire="byName" />
+</beans>        

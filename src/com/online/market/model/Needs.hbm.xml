@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-3-30 13:25:23 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="com.online.market.model.Needs" table="needs">
+        <id name="nid" type="string">
+            <column name="n_id" length="40" />
+            <generator class="uuid" />
+        </id>
+        <many-to-one name="user" class="com.online.market.model.User" fetch="select" cascade="save-update">
+            <column name="u_id" length="40" />
+        </many-to-one>
+        <property name="nname" type="string">
+            <column name="n_name" length="30" />
+        </property>
+        <property name="ncategory" type="string">
+            <column name="n_category" length="20" />
+        </property>
+        <property name="ndegree" type="string">
+            <column name="n_degree" length="20" />
+        </property>
+        <property name="nphone" type="string">
+            <column name="n_phone" length="20" />
+        </property>
+        <property name="nlessPrice" type="java.lang.Double">
+            <column name="n_less_price" precision="22" scale="0" />
+        </property>
+        <property name="nhighesPricet" type="java.lang.Double">
+            <column name="n_highes_pricet" precision="22" scale="0" />
+        </property>
+        <property name="nplace" type="string">
+            <column name="n_place" length="40" />
+        </property>
+        <property name="ndescription" type="string">
+            <column name="n_description" length="1000" />
+        </property>
+        <property name="ncollectNum" type="int">
+            <column name="n_collectNum" length="20" />
+        </property>
+        <property name="ncommentNum" type="int">
+            <column name="n_commentNum" length="20" />
+        </property>
+        <property name="ntime" type="timestamp">
+            <column name="n_time" length="19" />
+        </property>
+        <property name="nendTime" type="timestamp">
+            <column name="n_end_time" length="19" />
+        </property>
+        <property name="nvalid" type="java.lang.Boolean">
+            <column name="n_valid" />
+        </property>
+        <set name="ncomments" table="n_comment" inverse="true" lazy="true" fetch="select" cascade="all">
+            <key>
+                <column name="n_id" length="40" />
+            </key>
+            <one-to-many class="com.online.market.model.NComment" />
+        </set>
+    </class>
+</hibernate-mapping>

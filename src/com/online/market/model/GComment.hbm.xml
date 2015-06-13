@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-3-30 13:25:23 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="com.online.market.model.GComment" table="g_comment">
+        <id name="gcId" type="string">
+            <column name="gc_id" length="40" />
+            <generator class="uuid" />
+        </id>
+        <many-to-one name="goods" class="com.online.market.model.Goods" fetch="select" cascade="save-update">
+            <column name="g_id" length="40" />
+        </many-to-one>
+        <property name="gcMsg" type="string">
+            <column name="gc_msg" length="200" />
+        </property>
+        <property name="gcTime" type="timestamp">
+            <column name="gc_time" length="19" />
+        </property>
+        <property name="gcIsNew" type="java.lang.Boolean">
+            <column name="gc_is_new" />
+        </property>
+        <property name="uid" type="string">
+            <column name="u_id" length="40" />
+        </property>
+    </class>
+</hibernate-mapping>

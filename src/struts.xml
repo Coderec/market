@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.ui.theme" value="simple"></constant>
+	<constant name="struts.devMode" value="false"></constant>
+	<constant name="struts.objectFactory" value="spring"></constant>
+	
+	<constant name="struts.action.extension" value="do"/>
+	
+	<constant name="struts.locale" value="UTF-8"></constant>
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<!--struts2-->
+	<include file="struts2/struts-goods.xml"></include>
+	<include file="struts2/struts-search.xml"></include>
+	<include file="struts2/struts-searchCommon.xml"></include>
+	<include file="struts2/struts-login.xml"></include>
+	<include file="struts2/struts-registration.xml"></include>
+	<include file="struts2/struts-post.xml"></include>
+	<include file="struts2/struts-index.xml"></include>
+	<include file="struts2/struts-toItemDetails.xml"></include>
+	<include file="struts2/struts-toHomePage.xml"></include>
+	<include file="struts2/struts-toClassifiedDetails.xml"></include>
+	<include file="struts2/struts-comment.xml"></include>
+	<include file="struts2/struts-msg.xml"></include>
+	<include file="struts2/struts-collect.xml"></include>
+	<include file="struts2/struts-pwdMsg.xml"></include>
+	<include file="struts2/struts-exit.xml"></include>
+	<include file="struts2/struts-listChangePage.xml"></include>
+	<include file="struts2/struts-classifiedDetailsChangePage.xml"></include>
+	<include file="struts2/struts-unCollect.xml"></include>
+	<include file="struts2/struts-adminLogin.xml"></include>
+	<include file="struts2/struts-adminUserTable.xml"></include>
+	<include file="struts2/struts-adminGoodsTable.xml"></include>
+	<include file="struts2/struts-adminIndex.xml"></include>
+	<include file="struts2/struts-adminMsg.xml"></include>
+	<include file="struts2/struts-adminDetail.xml"></include>
+	<include file="struts2/struts-adminGoodsDetail.xml"></include>
+</struts>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-3-30 13:25:23 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="com.online.market.model.AdminMsg" table="admin_msg" >
+        <id name="adId" type="string">
+            <column name="ad_id" length="40" />
+            <generator class="uuid" />
+        </id>
+        <many-to-one name="user" class="com.online.market.model.User" fetch="select" cascade="save-update">
+            <column name="u_id" length="40" />
+        </many-to-one>
+        <many-to-one name="admin" class="com.online.market.model.Admin" fetch="select" cascade="save-update">
+            <column name="a_id" length="40" />
+        </many-to-one>
+        <property name="adMsg" type="string">
+            <column name="ad_msg" length="200" />
+        </property>
+        <property name="adTime" type="timestamp">
+            <column name="ad_time" length="19" />
+        </property>
+        <property name="adIsNew" type="java.lang.Boolean">
+            <column name="ad_is_new" />
+        </property>
+    </class>
+</hibernate-mapping>

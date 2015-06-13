@@ -1,0 +1,123 @@
+
+li{
+    float: left;
+    list-style: none;
+}
+
+.content{
+    width: 950px;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 80px;
+
+}
+.content form{
+    margin-top: 40px;
+    height: 45px;
+    width: 645px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.content form input[type="text"]{
+    width: 353px;
+    height: 43px;
+
+    outline: none;
+
+    font-size: 20px;
+    text-indent: 1em;
+    margin-right: 10px;
+}
+.content form input[type="submit"]{
+    width: 120px;
+    height: 45px;
+    background:url('../images/search3.png');
+    line-height: 45px;
+    text-align: center;
+    font-size: 20px;
+    margin-right: 10px;
+    border-color: #3cb8f8;
+    outline: none;
+    border:none;
+
+
+}
+.content .details{
+    width: 100%;
+    height: auto;
+    margin-top: 60px;
+
+}
+.content .details .title{
+    width: auto;
+    height: 30px;
+    margin-bottom: 85px;
+
+}
+.content .details .title div{
+    width: 10px;
+    height: 30px;
+    background: #3cb8f8;
+    margin-left: 30px;
+}
+.content .details .title div,h2,h5{
+    float: left;
+}
+.content .title h5{
+    margin-top: 10px;
+    color: #b6b6b6;
+    margin-right: 10px;
+}
+.content .details .details-content{
+    width: 100%;
+    height: auto;
+}
+.content .details .details-content>ul li{
+    margin-right: 30px;
+    margin-left: 30px;
+    width: 177px;
+    height: auto;
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+.content .details .details-content>ul{
+    width: 100%;
+    height: auto;
+}
+.content .details .details-content>ul li p{
+    margin-top: 10px;
+
+}
+.pagination {
+    margin-left: 320px;
+    margin-bottom: 50px;
+    clear: both;
+}
+.pagination .preNext{
+    width: 4em;
+    height: 2em;
+    line-height: 2em;
+    text-align: center;
+}
+.pagination li{
+    float: left;
+    margin-right: 5px;
+    background: #37b4f4;
+    margin-bottom: 50px;
+}
+.pagination li a{
+    text-decoration: none;
+    color: white;
+}
+.pagination li a:hover{
+    color: black;
+}
+.pagination .iNow{
+    width: 10em;
+    height: 2em;
+    line-height: 2em;
+    text-align: center;
+    color: white;
+}
+

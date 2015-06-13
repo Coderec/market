@@ -1,0 +1,142 @@
+
+input{
+    outline: none;
+    border:none;
+
+}
+body{
+    font-family: 'Microsoft YaHei' 'SimHei';
+}
+
+img {
+    border: none;
+}
+textarea{
+    resize:none
+}
+
+.fl{
+    float: left;
+}
+.clear{
+    clear: both;
+    display: block;
+}
+.ml118{
+    margin-left: 14px;
+    width: 380px;
+    overflow: hidden;
+
+}
+
+.content{
+    width: 1005px;
+    height: auto;
+
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 60px;
+}
+.content>p{
+    height: 46px;
+    width: 13em;
+    background: url("../images/post-up.png") no-repeat 30px 30px;
+    font-size: 25px;
+    font-weight: bolder;
+
+}
+.content .post-form{
+    width: 100%;
+    height: 460px;
+    border:1px solid #7e7e7e;
+}
+.content .post-form #item,#usetime{
+    width: 118px;
+    height: 28px;
+    background: url("../images/post-check.png");
+}
+.content .post-form .nanhu,.wenchang{
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+}
+.content .post-form #upload{
+    width: 98px;
+    height:95px ;
+    padding: 5px;
+    background: url("../images/post-add-picture.png") no-repeat center;
+    border:1px solid #9d9d9d;
+    ;
+}
+.content .post-form form{
+    margin-left: 60px;
+}
+.content .post-form input{
+    border:1px solid #7e7e7e;
+}
+
+.content .post-form form label{
+
+    font-size:20px;
+    font-weight: bolder;
+    margin-right: 20px;
+
+
+}
+.content .post-form p{
+    margin-top: 30px;
+    margin-bottom: 20px;
+
+}
+.content .post-form input{
+    border:none;
+}
+.content .post-form #title{
+    width: 338px;
+    height: 30px;
+    border:1px solid #9d9d9d;
+    text-indent: 1em;
+}
+.content .post-form #price{
+    width: 122px;
+    height: 30px;
+    border:1px solid #9d9d9d;
+    text-indent: 2em;
+}
+.content .post-form #original-price{
+    width: 122px;
+    height: 30px;
+    border:1px solid #9d9d9d;
+     text-indent: 2em;
+}
+.content .post-form #phone{
+    width: 290px;
+    height: 30px;
+    border:1px solid #9d9d9d;
+    text-indent: 2em;
+
+}
+.content .post-form .nanhu{
+    background: url("../images/post-selected.png");
+    margin-right: 5px;
+}
+.content .post-form .wenchang{
+    background: url("../images/post-select.png");
+    margin-right: 5px;
+    margin-left: 10px;
+}
+.content  #submit{
+    border:none;
+    float: right;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.content #description{
+    padding: 10px;
+    font-size: 18px;
+    overflow: auto;
+}
+
+.file{
+    margin-bottom: 30px;
+}

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-3-30 13:25:23 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="com.online.market.model.PwdMsg" table="pwd_msg">
+        <id name="pid" type="string">
+            <column name="p_id" length="40" />
+            <generator class="uuid" />
+        </id>
+        <many-to-one name="admin" class="com.online.market.model.Admin" fetch="select" cascade="save-update">
+            <column name="a_id" length="40" />
+        </many-to-one>
+        <property name="uname" type="string">
+            <column name="u_name" length="20" />
+        </property>
+        <property name="ptime" type="timestamp">
+            <column name="p_time" length="19" />
+        </property>
+        <property name="pisNew" type="java.lang.Boolean">
+            <column name="p_is_new" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,269 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+a{
+    text-decoration: none;
+
+}
+input:-webkit-autofill {
+-webkit-box-shadow: 0 0 0px 1000px white inset;
+
+}
+body{
+    font-family: 'Microsoft YaHei' 'SimHei';
+}
+input{
+    outline: none;
+}
+.fl{
+    float: left;
+}
+img {
+    border: none;
+}
+body{
+
+}
+.content{
+    width: 943px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.header a{
+    display: block;
+    width: 179px;
+    height: 45px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.form #form-bg{
+    float: left;
+    width: 630px;
+    height: 413px;
+}
+.form #login-form,.form #registration-form{
+    display: block;
+    float: left;
+    width: 312px;
+    height: 410px;
+    border-left: none;
+    border-top: 1px solid #989898;
+    border-right: 1px solid #989898;
+    border-bottom: 1px solid #989898;
+
+
+
+}
+.form #login-form,#registration-form{
+    margin-bottom: 63px;
+}
+
+.form  #login-form form{
+    margin-top: 80px;
+    width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.form  #registration-form form{
+    margin-top: 30px;
+    width: 252px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.form form >div{
+    height: 48px;
+    margin-bottom: 1px;
+
+}
+.form form >div .beforeImg{
+    width: 40px;
+    height: 46px;
+    border-top: 1px solid #989898;
+    border-left: 1px solid #989898;
+    border-bottom: 1px solid #989898;
+}
+.form form >div .beforeImg img{
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.form form span{
+
+    color:#757575;
+    font-size: 12px;
+
+}
+.form  form input{
+    width: 200px;
+    height: 46px;
+    line-height: 25px;
+    text-align: left;
+    margin-bottom: 1px;
+    font-size: 20px;
+    color: #333;
+
+}
+.form  form input[type='text']{
+
+    border:none;
+    border-top: 1px solid #989898;
+    border-right: 1px solid #989898;
+    border-bottom: 1px solid #989898;
+
+
+
+}
+.form form .user-logo,.password-logo{
+    width: 46px;
+    height: 46px;
+     border-left: 1px solid #989898;
+     border-top: 1px solid #989898;
+     border-bottom: 1px solid #989898;
+
+
+ }
+.form form .yzm{
+    width: 50px;
+    height: 46px;
+     border-left: 1px solid #989898;
+     border-top: 1px solid #989898;
+     border-bottom: 1px solid #989898;
+     float:left;
+     line-height:46px;
+     text-align:center;
+     margin-bottom:10px;
+
+
+ }
+.form form .user-logo{
+    background: url("../images/login-reg-user.png") no-repeat center;
+    float: left;
+}
+.form form .password-logo{
+    background: url("../images/login-reg-pass.png") no-repeat center;
+    float: left;
+    height: 46px;
+}
+
+.form  form input[type='password']{
+
+    border:none;
+    border-top: 1px solid #989898;
+    border-right: 1px solid #989898;
+    border-bottom: 1px solid #989898;
+
+
+}
+#yzm{
+	float:left;
+	  margin-bottom:10px;
+	  width:196px;
+}
+
+.form  form p{
+    line-height: 60px;
+    text-align: left center;
+}
+.form  form #login-submit{
+    border:none;
+    background: #2db3f8;
+    line-height: 44px;
+    text-align: center;
+    width: 280px;
+}
+.form  form #registration-submit{
+    border:none;
+    background: #2db3f8;
+    line-height: 44px;
+    text-align: center;
+    margin-top: 30px;
+}
+.footer{
+   width: 1145px;
+    height: 76px;
+    border-top: 1px solid #2db3f8;
+    margin-right: auto;
+    margin-left: auto;
+    clear: both;
+
+
+}
+.footer p{
+    line-height: 76px;
+    text-align: center;
+    font-size: 16px;
+    color:#919191;
+}
+.footer p a{
+    color:#919191;
+}
+.footer p a:hover{
+    text-decoration: underline;
+    color: #2db3f8;
+}
+.newForm{
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    width: 100%;
+    height: 100%;
+    background: #e5e9ea;
+    z-index: 100000;
+    display: none;
+
+}
+.newForm form{
+    width: 400px;
+    height: 230px;
+    background: white;
+    margin-left: auto;
+    margin-right: auto;
+    padding:5px,15px;
+    margin-top:150px;
+}
+.newForm form h3{
+    padding-top: 10px;
+}
+.mr20{
+    margin-left: 20px;
+}
+.newForm form #newText{
+    width:300px;
+    height: 30px;
+    text-indent: 1em;
+    margin-top: 10px;
+}
+.newForm form #newUser{
+    width:200px;
+    height: 30px;
+    text-indent: 1em;
+    margin-top: 10px;
+}
+.newForm form p{
+    font-size: 14px;
+    color: #2db3f8;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.form form .yzm-logo{
+    float: left;
+    background: url("../images/yzm.png");
+    width: 46px;
+    height: 46px;
+    border-left: 1px solid #989898;
+    border-top: 1px solid #989898;
+    border-bottom: 1px solid #989898;
+}
+.newForm form input[type="button"]{
+    width: 8em;
+    height: 2em;
+    font-size: 16px;
+    border:none;
+    margin-left:100px;
+    background: #63a72d;
+    color: white;
+}

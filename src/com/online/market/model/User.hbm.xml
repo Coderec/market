@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2014-3-30 13:25:23 by Hibernate Tools 3.3.0.GA -->
+<hibernate-mapping>
+    <class name="com.online.market.model.User" table="user">
+        <id name="uid" type="string">
+            <column name="u_id" length="40" />
+            <generator class="uuid" />
+        </id>
+        <property name="ultUid" type="int">
+            <column name="u_ltUid" length="40" />
+        </property>
+        <property name="uname" type="string">
+            <column name="u_name" length="20" />
+        </property>
+        <property name="upwd" type="string">
+            <column name="u_pwd" length="64" />
+        </property>
+        <property name="usex" type="string">
+            <column name="u_sex" length="6" />
+        </property>
+        <property name="uphone" type="string">
+            <column name="u_phone" length="20" />
+        </property>
+        <property name="uemail" type="string">
+            <column name="u_email" length="40" />
+        </property>
+        <property name="utime" type="timestamp">
+            <column name="u_time" length="19" />
+        </property>
+        <property name="uvalid" type="java.lang.Boolean">
+            <column name="u_valid" />
+        </property>
+        <property name="ugids" type="string">
+            <column name="u_gids" length="4000" />
+        </property>
+        <set name="goodses" table="goods" inverse="true" lazy="true" fetch="select" cascade="all">
+            <key>
+                <column name="u_id" length="40" />
+            </key>
+            <one-to-many class="com.online.market.model.Goods" />
+        </set>
+        <set name="userMsgs" table="user_msg" inverse="true" lazy="true" fetch="select" cascade="all">
+            <key>
+                <column name="receive_id" length="40" />
+            </key>
+            <one-to-many class="com.online.market.model.UserMsg" />
+        </set>
+        <set name="needses" table="needs" inverse="true" lazy="true" fetch="select" cascade="all">
+            <key>
+                <column name="u_id" length="40" />
+            </key>
+            <one-to-many class="com.online.market.model.Needs" />
+        </set>
+        <set name="adminMsgs" table="admin_msg" inverse="true" lazy="true" fetch="select" cascade="all">
+            <key>
+                <column name="u_id" length="40" />
+            </key>
+            <one-to-many class="com.online.market.model.AdminMsg" />
+        </set>
+        <set name="backMsgs" table="back_msg" inverse="true" lazy="true" fetch="select" cascade="all">
+            <key>
+                <column name="u_id" length="40" />
+            </key>
+            <one-to-many class="com.online.market.model.BackMsg" />
+        </set>
+    </class>
+</hibernate-mapping>

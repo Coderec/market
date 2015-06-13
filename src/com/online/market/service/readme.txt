@@ -1,0 +1,1 @@
+主要定义通过Hibernate操作数据库的manager接口

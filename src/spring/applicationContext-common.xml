@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
+	default-autowire="byName" default-lazy-init="true">
+	<!-- query provider wrapper -->
+	<bean id="queryProvider" class="org.onlineframework.commons.ListMapQueryProvider" autowire="byName">
+		<property name="providers">
+			<list>
+				<ref bean="queryProviderMapping-notice"/>	
+				<ref bean="queryProviderMapping-goods-sql"/>
+				<ref bean="queryProviderMapping-user"/>
+				<ref bean="queryProviderMapping-gComment"/>
+				<ref bean="queryProviderMapping-nComment"/>
+				<ref bean="queryProviderMapping-needs"/>
+				<ref bean="queryProviderMapping-userMsg"/>
+				<ref bean="queryProviderMapping-adminMsg"/>
+				<ref bean="queryProviderMapping-admin"/>
+				<ref bean="queryProviderMapping-needs-sql"/>
+			</list>
+		</property>
+	</bean>
+</beans>
